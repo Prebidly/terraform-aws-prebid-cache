@@ -28,3 +28,8 @@ resource "aws_elasticache_subnet_group" "subnet-group" {
   subnet_ids = var.subnets
   tags       = var.tags
 }
+
+output "redis_host" {
+  value       = aws_elasticache_replication_group.redis.primary_endpoint_address
+  description = "Redis host primary endpoint address"
+}

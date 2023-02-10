@@ -1,20 +1,34 @@
 # Prebid Cache Infra
 
 ## What does this module do?
-Terraform module designed to create and AWS ECS cluster required for hosting the [prebid-cache](https://github.com/prebid/prebid-cache) docker image and the Redis cluster for the in-memory database backend.
-It also creates all the required security settings to allow incoming request from an application load balancer and enable communication between the prebid-server and the prebid-cache server.
+Terraform module designed to create: 
+* AWS ECS cluster required for hosting the [prebid-cache](https://github.com/prebid/prebid-cache) docker image  
+* AWS ECR repository to store the docker image
+* AWS ElastiCache cluster with Redis engine as the in-memory cache database
+* All corresponding IAM roles and security groups required to enable comminuation between the prebid-cache and prebid-server
 
 ![img.png](img.png)
 
 ## Pre-requisites
-This module does not create a VPC for the resources to be deployed nor does it create the load balancer sending the traffic to the prebid-cache application.
-Therefore, it is a pre-requisite for a `VPC with its subnet groups` and an `application load balancer` to be created prior.
+This module does not create a VPC nor does it create the load balancer sending the requests to the prebid-cache application.
+Therefore, it is a pre-requisite for a `VPC with subnet groups` and an `Application Load Balancer with a target group` to be created prior.
 
 ## Usage
-**Important**: This module only builds the infrastructure required to host the prebid-cache server and does not build the prebid-cache docker image itself. To see an example of how to build the docker image itself, see instructions in examples/complete
+**Important**: This module only builds the infrastructure required to host the prebid-cache server and does not deploy the prebid-cache docker image itself. To see an example of how to build and deploy the docker image, see [examples/complete](https://github.com/Prebidly/prebid-cache-infra/tree/main/examples/complete).
+
+```
+module "prebid-cache" {
+  source = "prebidly/prebid-cache-infra/aws"
+
+  config              = var.config
+  lb_target_group_arn = var.lb_target_group_arn
+  subnets             = var.subnets
+  vpc_id              = var.vpc_id
+}
+```
 
 ## Examples
-For a complete example, see examples/complete.
+For a complete example, see [examples/complete](https://github.com/Prebidly/prebid-cache-infra/tree/main/examples/complete).
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -51,4 +65,10 @@ For a complete example, see examples/complete.
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources | `map(string)` | <pre>{<br>  "project": "prebid-cache"<br>}</pre> | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | Id of the VPC where resources should be deployed | `string` | n/a | yes |
 
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_ecr_url"></a> [ecr\_url](#output\_ecr\_url) | ECR repository url |
+| <a name="output_redis_host"></a> [redis\_host](#output\_redis\_host) | Redis host primary endpoint address |
 <!-- END_TF_DOCS -->

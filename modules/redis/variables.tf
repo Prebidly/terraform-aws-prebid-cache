@@ -8,36 +8,36 @@ variable "config" {
 }
 
 variable "engine_version" {
-  type = string
+  type        = string
   description = "Redis engine version number"
 }
 
 variable "node_type" {
-  type = string
+  type        = string
   description = "Redis node type"
 }
 
 variable "parameter_group_name" {
-  type = string
+  type        = string
   description = "Redis parameter group name. Should be aligned with the redis engine version"
 }
 
 variable "subnets" {
-  type = list(string)
+  type        = list(string)
   description = "List of subnet IDs associated with the VPC"
 }
 
 variable "cloudwatch_log_group" {
-  type = string
+  type        = string
   description = "Cloudwatch log group name"
 }
 
 variable "sg_id" {
-  type = string
+  type        = string
   description = "Security group id"
 }
 
 variable "tags" {
-  type = map(string)
+  type        = map(string)
   description = "A map of tags to add to all resources"
 }

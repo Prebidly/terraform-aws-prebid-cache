@@ -56,3 +56,13 @@ module "redis" {
   sg_id                = module.security_groups.redis_security_group_id
   tags                 = var.tags
 }
+
+output "ecr_url" {
+  value       = module.ecr.ecr_url
+  description = "ECR repository url"
+}
+
+output "redis_host" {
+  value       = module.redis.redis_host
+  description = "Redis host primary endpoint address"
+}

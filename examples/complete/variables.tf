@@ -12,7 +12,12 @@ variable "vpc_id" {
   description = "Id of the VPC where resources should be deployed"
 }
 
-variable "tags" {
-  type        = map(string)
-  description = "A map of tags to add to all resources"
+variable "subnets" {
+  type        = list(string)
+  description = "List of subnet IDs associated with the VPC"
+}
+
+variable "lb_target_group_arn" {
+  type        = string
+  description = "ARN of the load balancer target group"
 }
