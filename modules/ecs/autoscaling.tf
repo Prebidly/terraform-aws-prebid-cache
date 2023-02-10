@@ -4,7 +4,6 @@ resource "aws_launch_configuration" "ecs_launch_config1" {
   security_groups      = var.securityGroupIds
   user_data            = "#!/bin/bash\necho ECS_CLUSTER=${local.clusterName} >> /etc/ecs/ecs.config"
   instance_type        = var.instance_type
-  key_name             = var.config.projectName
 }
 
 resource "aws_autoscaling_group" "failure_analysis_ecs_asg" {
