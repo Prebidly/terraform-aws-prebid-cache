@@ -32,7 +32,7 @@ resource "aws_ecs_service" "ecsService" {
   load_balancer {
     target_group_arn = var.lb_target_group_arn
     container_name   = local.containerName
-    container_port   = local.containerPort
+    container_port   = local.containerPort1
   }
 
   tags = var.tags
