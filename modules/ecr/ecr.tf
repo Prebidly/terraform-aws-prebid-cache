@@ -10,5 +10,6 @@ resource "aws_ecr_repository" "repository" {
 }
 
 output "ecr_url" {
-  value = aws_ecr_repository.repository.repository_url
+  value       = aws_ecr_repository.repository.repository_url
+  description = "ECR repository url"
 }

@@ -4,8 +4,8 @@ config = {
   projectName = "prebid-cache"
 }
 
-vpc_id = ""
+vpc_id = "vpc-id"
 
-subnets = []
+subnets = ["subnet-00", "subnet-01"]
 
-lb_target_group_arn = ""
+lb_target_group_arn = "lb-target-group-arn"

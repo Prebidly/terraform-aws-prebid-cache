@@ -10,5 +10,5 @@ terraform {
 }
 
 provider "aws" {
-  region  = var.config.region
+  region = var.config.region
 }

@@ -10,12 +10,12 @@ terraform {
 }
 
 provider "aws" {
-  region  = var.config.region
+  region = var.config.region
 }
 
 module "prebid-cache" {
-#  source = "prebidly/prebid-cache-infra/aws"
-  source = "git::https://github.com/Prebidly/prebid-cache-infra.git"
+  #  source = "prebidly/prebid-cache-infra/aws"
+  source = "git::https://github.com/Prebidly/prebid-cache-infra.git?ref=dev"
 
   config              = var.config
   lb_target_group_arn = var.lb_target_group_arn

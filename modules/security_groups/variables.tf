@@ -8,11 +8,11 @@ variable "config" {
 }
 
 variable "vpc_id" {
-  type = string
+  type        = string
   description = "Id of the VPC where resources should be deployed"
 }
 
 variable "tags" {
-  type = map(string)
+  type        = map(string)
   description = "A map of tags to add to all resources"
 }

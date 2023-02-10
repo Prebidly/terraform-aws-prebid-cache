@@ -8,16 +8,16 @@ variable "config" {
 }
 
 variable "vpc_id" {
-  type = string
+  type        = string
   description = "Id of the VPC where resources should be deployed"
 }
 
 variable "subnets" {
-  type = list(string)
+  type        = list(string)
   description = "List of subnet IDs associated with the VPC"
 }
 
 variable "lb_target_group_arn" {
-  type = string
+  type        = string
   description = "ARN of the load balancer target group"
 }
