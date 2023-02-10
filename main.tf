@@ -1,18 +1,18 @@
 module "cloudwatch" {
-  source = "./cloudwatch"
+  source = "./modules/cloudwatch"
 
   config = var.config
   tags   = var.tags
 }
 
 module "iam" {
-  source = "./iam"
+  source = "./modules/iam"
 
   config = var.config
 }
 
 module "security_groups" {
-  source = "./security_groups"
+  source = "./modules/security_groups"
 
   config = var.config
   vpc_id = var.vpc_id
@@ -20,14 +20,14 @@ module "security_groups" {
 }
 
 module "ecr" {
-  source = "./ecr"
+  source = "./modules/ecr"
 
   config = var.config
   tags   = var.tags
 }
 
 module "ecs" {
-  source = "./ecs"
+  source = "./modules/ecs"
 
   config                  = var.config
   ecsServiceRoleArn       = module.iam.ecsServiceRoleArn
@@ -45,7 +45,7 @@ module "ecs" {
 
 
 module "redis" {
-  source = "./redis"
+  source = "./modules/redis"
 
   config               = var.config
   engine_version       = var.redis_engine_version

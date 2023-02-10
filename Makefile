@@ -5,10 +5,10 @@ init:
 	cd ./terraform; terraform init
 
 plan:
-	cd ./terraform; terraform plan -var-file=dev.tfvars
+	cd ./terraform; terraform plan
 
 apply:
-	cd ./terraform; terraform apply -var-file=dev.tfvars
+	cd ./terraform; terraform apply
 
 
 # image will build a docker image
