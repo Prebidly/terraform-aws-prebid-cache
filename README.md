@@ -2,6 +2,7 @@
 
 ## What does this module do?
 Terraform module designed to create: 
+
 * AWS ECS cluster to run the prebid-cache application   
 * AWS ECR repository to store the [prebid-cache](https://github.com/prebid/prebid-cache) docker image
 * AWS ElastiCache cluster with Redis engine as the cache database backend
