@@ -14,7 +14,7 @@ provider "aws" {
 }
 
 module "prebid-cache" {
-  source = "prebidly/prebid-cache-infra/aws"
+  source = "Prebidly/prebid-cache/aws"
 
   config              = var.config
   lb_target_group_arn = var.lb_target_group_arn

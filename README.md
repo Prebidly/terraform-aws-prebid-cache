@@ -1,4 +1,4 @@
-# Prebid Cache Infra
+# terraform-aws-prebid-cache
 
 ## What does this module do?
 Terraform module designed to create: 
@@ -8,18 +8,18 @@ Terraform module designed to create:
 * AWS ElastiCache cluster with Redis engine as the cache database backend
 * All relevant security group settings required to enable communication between prebid-cache and prebid-server applications
 
-![img.png](img.png)
+![img.png](https://github.com/Prebidly/terraform-aws-prebid-cache/blob/main/img.png?raw=true)
 
 ## Pre-requisites
 This module does not create a VPC nor does it create the load balancer sending the requests to the prebid-cache application.
 Therefore, it is a pre-requisite for a `VPC with subnet groups` and an `Application Load Balancer with a target group` to be created prior.
 
 ## Usage
-**Important**: This module only builds the infrastructure required to host the prebid-cache server and does not deploy the prebid-cache docker image itself. To see an example of how to build and deploy the docker image, see [examples/complete](https://github.com/Prebidly/prebid-cache-infra/tree/main/examples/complete).
+**Important**: This module only builds the infrastructure required to host the prebid-cache server and does not deploy the prebid-cache docker image itself. To see an example of how to build and deploy the docker image, see [examples/complete](https://github.com/Prebidly/terraform-aws-prebid-cache/tree/main/examples/complete).
 
 ```
 module "prebid-cache" {
-  source = "prebidly/prebid-cache-infra/aws"
+  source = "Prebidly/prebid-cache/aws"
 
   config              = var.config
   lb_target_group_arn = var.lb_target_group_arn
@@ -29,7 +29,7 @@ module "prebid-cache" {
 ```
 
 ## Examples
-For a complete example, see [examples/complete](https://github.com/Prebidly/prebid-cache-infra/tree/main/examples/complete).
+For a complete example, see [examples/complete](https://github.com/Prebidly/terraform-aws-prebid-cache/tree/main/examples/complete).
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
