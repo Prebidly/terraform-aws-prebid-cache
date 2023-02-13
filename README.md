@@ -2,10 +2,11 @@
 
 ## What does this module do?
 Terraform module designed to create: 
-* AWS ECS cluster required for hosting the [prebid-cache](https://github.com/prebid/prebid-cache) docker image  
-* AWS ECR repository to store the docker image
-* AWS ElastiCache cluster with Redis engine as the in-memory cache database
-* All corresponding IAM roles and security groups required to enable comminuation between the prebid-cache and prebid-server
+
+* AWS ECS cluster to run the prebid-cache application   
+* AWS ECR repository to store the [prebid-cache](https://github.com/prebid/prebid-cache) docker image
+* AWS ElastiCache cluster with Redis engine as the cache database backend
+* All relevant security group settings required to enable communication between prebid-cache and prebid-server applications
 
 ![img.png](img.png)
 

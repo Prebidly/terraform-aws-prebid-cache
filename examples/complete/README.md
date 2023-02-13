@@ -17,7 +17,7 @@ Clone the prebid-cache application code from Github
 git clone https://github.com/prebid/prebid-cache.git
 ```
 
-Update the config.yaml file in the application code to point to the new Redis cluster. See example config file at examples/complete/config.yaml
+Update the `config.yaml` file in the application code to point to the new Redis cluster. See example config file at examples/complete/config.yaml
 
 Build the docker image locally
 
